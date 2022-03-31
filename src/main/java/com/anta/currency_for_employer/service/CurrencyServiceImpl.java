@@ -53,4 +53,9 @@ public class CurrencyServiceImpl implements CurrencyService{
     public List<Currency> getAllCurrencies() {
         return currencyRepository.findAll();
     }
+
+    @Override
+    public Currency getCurrency(int id) {
+        return currencyRepository.findById(id).orElseThrow(NoSuchCurrencyException::new);
+    }
 }

@@ -9,4 +9,6 @@ public interface CurrencyService {
     Boolean updateCurrencies();
 
     List<Currency> getAllCurrencies();
+
+    Currency getCurrency(int id);
 }
