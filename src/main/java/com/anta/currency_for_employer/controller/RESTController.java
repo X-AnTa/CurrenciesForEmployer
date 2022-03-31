@@ -1,10 +1,14 @@
 package com.anta.currency_for_employer.controller;
 
+import com.anta.currency_for_employer.entity.Currency;
 import com.anta.currency_for_employer.service.CurrencyServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -17,7 +21,12 @@ public class RESTController {
     }
 
     @RequestMapping("/admin/update")
-    public ResponseEntity<Boolean> updateCurrencies(){
+    public ResponseEntity<Boolean> updateCurrencies() {
         return new ResponseEntity<>(currencyService.updateCurrencies(), HttpStatus.OK);
+    }
+
+    @GetMapping("/currencies")
+    public ResponseEntity<List<Currency>> getAllCurrencies() {
+        return new ResponseEntity<>(currencyService.getAllCurrencies(), HttpStatus.OK);
     }
 }

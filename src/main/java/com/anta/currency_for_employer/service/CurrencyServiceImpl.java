@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class CurrencyServiceImpl implements CurrencyService{
@@ -33,8 +34,10 @@ public class CurrencyServiceImpl implements CurrencyService{
             for (int i = 0; i < 34; i++) {
                 Element name = page.select("Name").get(i);
                 Element value = page.select("Value").get(i);
+                Element nominal = page.select("Nominal").get(i);
+                Element charCode = page.select("CharCode").get(i);
                 currency.setName(String.valueOf(name.textNodes().get(0)));
-                currency.setRate(String.valueOf(value.textNodes().get(0)));
+                currency.setRate(nominal.textNodes().get(0) + " " + charCode.textNodes().get(0)+ " к "+ value.textNodes().get(0) +" RUB");
                 currency.setId(i + 1);
                 System.out.println(currency);
                 currencyRepository.save(currency);
@@ -44,5 +47,10 @@ public class CurrencyServiceImpl implements CurrencyService{
         catch (Exception e){
             return false;
         }
+    }
+
+    @Override
+    public List<Currency> getAllCurrencies() {
+        return currencyRepository.findAll();
     }
 }
