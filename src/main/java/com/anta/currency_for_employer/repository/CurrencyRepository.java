@@ -7,5 +7,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CurrencyRepository extends PagingAndSortingRepository<Currency, Integer> {
 
+    /**
+     * Find currency by name
+     * @param name currency name
+     * @return found currency
+     */
     Currency findByName(String name);
 }

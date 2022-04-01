@@ -23,6 +23,11 @@ public class UserService {
         this.roleRepository = roleRepository;
     }
 
+    /**
+     * Add new User
+     * @param user login and password
+     * @return saved user
+     */
     public User saveUser(User user) {
         Role userRole = roleRepository.findByName("ROLE_USER");
 
@@ -31,6 +36,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * Find user by login and password
+     * @param login user login
+     * @param password user password
+     * @return found user or null
+     */
     public User findByLoginAndPassword(String login, String password) {
         User user = userRepository.findByLogin(login);
 
@@ -42,6 +53,11 @@ public class UserService {
         return null;
     }
 
+    /**
+     * Find user by login
+     * @param login user login
+     * @return found user
+     */
     public User findByLogin(String login) {
         return userRepository.findByLogin(login);
     }
