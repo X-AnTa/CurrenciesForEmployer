@@ -26,13 +26,13 @@ public class RESTController {
         return new ResponseEntity<>(currencyService.updateCurrencies(), HttpStatus.OK);
     }
 
-    @GetMapping("/currencies/{pageNo}")
-    public ResponseEntity<List<Currency>> getAllCurrencies(@PathVariable int pageNo) {
-        return new ResponseEntity<>(currencyService.getAllCurrencies(pageNo), HttpStatus.OK);
+    @GetMapping("/user/currencies/{pageNo}/{pageSize}")
+    public ResponseEntity<List<Currency>> getAllCurrencies(@PathVariable int pageNo, @PathVariable int pageSize) {
+        return new ResponseEntity<>(currencyService.getAllCurrencies(pageNo, pageSize), HttpStatus.OK);
     }
 
-    @GetMapping("/currency/{id}")
-    public ResponseEntity<Currency> getCurrency(@PathVariable int id){
-        return new ResponseEntity<>(currencyService.getCurrency(id),HttpStatus.OK);
+    @GetMapping("/user/currency/{id}")
+    public ResponseEntity<Currency> getCurrency(@PathVariable int id) {
+        return new ResponseEntity<>(currencyService.getCurrency(id), HttpStatus.OK);
     }
 }

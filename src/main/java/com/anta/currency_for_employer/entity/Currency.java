@@ -1,9 +1,6 @@
 package com.anta.currency_for_employer.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "currency")
