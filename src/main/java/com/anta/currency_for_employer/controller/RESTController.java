@@ -26,9 +26,9 @@ public class RESTController {
         return new ResponseEntity<>(currencyService.updateCurrencies(), HttpStatus.OK);
     }
 
-    @GetMapping("/currencies")
-    public ResponseEntity<List<Currency>> getAllCurrencies() {
-        return new ResponseEntity<>(currencyService.getAllCurrencies(), HttpStatus.OK);
+    @GetMapping("/currencies/{pageNo}")
+    public ResponseEntity<List<Currency>> getAllCurrencies(@PathVariable int pageNo) {
+        return new ResponseEntity<>(currencyService.getAllCurrencies(pageNo), HttpStatus.OK);
     }
 
     @GetMapping("/currency/{id}")

@@ -8,7 +8,7 @@ public interface CurrencyService {
 
     Boolean updateCurrencies();
 
-    List<Currency> getAllCurrencies();
+    List<Currency> getAllCurrencies(int pageNo);
 
     Currency getCurrency(int id);
 }
