@@ -21,3 +21,5 @@ create unique index user_table_login_uindex on user_table (login);
 
 insert into role_table(name) values ('ROLE_ADMIN');
 insert into role_table(name) values ('ROLE_USER');
+
+insert into user_table (login, password, role_id) values ('admin','$2a$10$XTmPsA5zRC8WR2Px1HqSH.Gg1EZRPZXPGIwouo8rH6GVis3WGMyWq',1);
